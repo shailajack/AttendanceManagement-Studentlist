@@ -198,8 +198,7 @@ function addContentToDatabase(studentname, studentemail, studentcontactnum, stud
 		database: 'StudentDB'
 	});
 
-	connection.query('INSERT INTO students (studentname,studentemail,studentcontactnum,studentfeesstatus) ' +
-		             'VALUES ("' + studentname + ' ' + studentemail + ' ' + studentcontactnum + ' ' + studentfeesstatus + ' ")',
+	connection.query('INSERT INTO students SET studentname=?, studentemail=?, studentcontactnum=?, studentfeesstatus=?;',[studentname, studentemail, studentcontactnum, studentfeesstatus ], 
 
 		function(err) {
 			if (err) {
